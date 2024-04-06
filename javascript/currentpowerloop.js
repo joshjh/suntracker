@@ -21,7 +21,6 @@ function getSolarData() {
             document.getElementById("invertertemperature").innerText = `Inverter Temperature: ${data.INVERTER_TEMPERATURE} °C`;
             document.getElementById("batterycharge").innerText = `Battery Charge: ${data.BATTERY_CHARGE} %`;
             document.getElementById("batterytemperature").innerText = `Battery Temperature: ${data.BATTERY_TEMPERATURE} °C`;
-            document.getElementById("batterytemperature").innerText = `Battery Temperature: ${data.BATTERY_TEMPERATURE} °C`;
             
             if (data.INVERTER_TEMPERATURE > inverterTempAlarm) {
                  document.getElementById("invertertemperature").classList.add("u-danger");
@@ -57,6 +56,7 @@ function getSolarData() {
         }
         else {
             console.log("Error: ajax callback returned something other than success");
+            throw new Error("Error: ajax callback returned something other than success");
         }
 
     })
